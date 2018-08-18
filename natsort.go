@@ -5,6 +5,7 @@ import (
 	"regexp"
 	"sort"
 	"strconv"
+	"strings"
 )
 
 type stringSlice []string
@@ -32,8 +33,15 @@ func Sort(l []string) {
 	sort.Sort(stringSlice(l))
 }
 
+// IgnoreCase ignores cases
+var IgnoreCase = false
+
 // Compare returns true if the first string precedes the second one according to natural order
 func Compare(a, b string) bool {
+	if IgnoreCase {
+		a = strings.ToLower(a)
+		b = strings.ToLower(b)
+	}
 	chunksA := chunkify(a)
 	chunksB := chunkify(b)
 
