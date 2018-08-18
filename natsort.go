@@ -8,6 +8,9 @@ import (
 	"strings"
 )
 
+// IgnoreCase ignores cases
+var IgnoreCase = false
+
 type stringSlice []string
 
 func (s stringSlice) Len() int {
@@ -15,7 +18,7 @@ func (s stringSlice) Len() int {
 }
 
 func (s stringSlice) Less(a, b int) bool {
-	return Compare(s[a], s[b])
+	return Compare(s[a], s[b], IgnoreCase)
 }
 
 func (s stringSlice) Swap(a, b int) {
@@ -33,12 +36,9 @@ func Sort(l []string) {
 	sort.Sort(stringSlice(l))
 }
 
-// IgnoreCase ignores cases
-var IgnoreCase = false
-
 // Compare returns true if the first string precedes the second one according to natural order
-func Compare(a, b string) bool {
-	if IgnoreCase {
+func Compare(a, b string, ignoreCase bool) bool {
+	if ignoreCase {
 		a = strings.ToLower(a)
 		b = strings.ToLower(b)
 	}
