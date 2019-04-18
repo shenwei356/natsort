@@ -38,6 +38,11 @@ func Sort(l []string) {
 
 // Compare returns true if the first string precedes the second one according to natural order
 func Compare(a, b string, ignoreCase bool) bool {
+	if a == "" {
+		return true
+	} else if b == "" {
+		return false
+	}
 	if ignoreCase {
 		a = strings.ToLower(a)
 		b = strings.ToLower(b)

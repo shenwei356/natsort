@@ -43,9 +43,11 @@ func Test_Sort1(t *testing.T) {
 		"Xiph Xlater 500",
 		"Xiph Xlater 5000",
 		"Xiph Xlater 58",
+		"",
 	}
 
 	testListSortedOK := []string{
+		"",
 		"10X Radonius",
 		"20X Radonius",
 		"20X Radonius Prime",
@@ -114,6 +116,8 @@ func Test_Sort2(t *testing.T) {
 		"z19.doc",
 		"z2.doc",
 		"z20.doc",
+		"z.doc",
+		"za.doc",
 		"z3.doc",
 		"z4.doc",
 		"z5.doc",
@@ -147,6 +151,8 @@ func Test_Sort2(t *testing.T) {
 		"z100.doc",
 		"z101.doc",
 		"z102.doc",
+		"z.doc",
+		"za.doc",
 	}
 
 	testListSorted := testList[:]
